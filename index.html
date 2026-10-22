@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PickleDock | Ball holder for wheelchair pickleball</title>
+  <meta name="description" content="PickleDock is a 3D-printed dock that clamps onto a sports wheelchair and holds a spare pickleball within reach.">
+  <meta property="og:title" content="PickleDock">
+  <meta property="og:description" content="A 3D-printed ball holder that clamps onto a sports wheelchair.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="PickleDock home"><img src="assets/img/logo.png" alt="PickleDock" width="180" height="29"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#model">3D model</a>
+      <a href="#fit">Fit guide</a>
+      <a href="#story">Story</a>
+      <a href="#files" class="pill">Get the files</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Adaptive gear for wheelchair pickleball</p>
+      <h1>A spare ball, clipped to your chair.</h1>
+      <p class="lead">PickleDock clamps onto the frame of a sports wheelchair and holds an extra pickleball right where your hand already is. Pull it out, serve, and keep playing.</p>
+      <div class="hero-actions">
+        <a href="#how" class="btn primary">See how it works</a>
+        <a href="#model" class="btn ghost">Spin the 3D model</a>
+      </div>
+      <ul class="quick-facts">
+        <li><strong>4</strong><span>rail sizes</span></li>
+        <li><strong>2</strong><span>printed parts</span></li>
+        <li><strong>0</strong><span>supports to print</span></li>
+      </ul>
+    </div>
+    <figure class="hero-img card">
+      <img src="assets/img/hero.webp" alt="A wheelchair pickleball player reaching for a yellow ball held in a blue PickleDock mounted on the chair frame" width="1198" height="1313">
+      <figcaption>Concept image</figcaption>
+    </figure>
+  </section>
+
+  <!-- WHY -->
+  <section class="section wrap why">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Why it exists</p>
+        <h2>Your hands are already busy.</h2>
+      </div>
+      <div class="why-body">
+        <p>In wheelchair pickleball you push the chair and swing the paddle with the same hands. A spare ball in your lap tends to roll off, and pockets are hard to reach while seated.</p>
+        <p>PickleDock gives the ball a fixed home on the side of the chair. It sits near the push rim, so grabbing it is one short reach.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="section wrap" id="how">
+    <p class="eyebrow">How it works</p>
+    <h2>Three parts, one minute to set up.</h2>
+    <ol class="steps">
+      <li class="card step">
+        <div class="step-img"><img src="assets/img/step-1.webp" alt="The clamp snapped onto a wheelchair tube" loading="lazy"></div>
+        <span class="step-num">1</span>
+        <h3>Snap the clamp on</h3>
+        <p>The C-shaped clamp pushes onto a round frame tube. Pick the size that matches your rail.</p>
+      </li>
+      <li class="card step">
+        <div class="step-img"><img src="assets/img/step-2.webp" alt="The cup sliding onto the clamp's dovetail rail" loading="lazy"></div>
+        <span class="step-num">2</span>
+        <h3>Slide the cup on</h3>
+        <p>A tapered dovetail rail on the clamp fits a slot under the cup. It wedges tighter the further it goes.</p>
+      </li>
+      <li class="card step">
+        <div class="step-img"><img src="assets/img/step-3.webp" alt="A pickleball snapped into the cup" loading="lazy"></div>
+        <span class="step-num">3</span>
+        <h3>Drop a ball in</h3>
+        <p>Four flexible fingers open around the ball and click shut past a small lip. A light pull gets it back out.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- MODEL -->
+  <section class="section wrap" id="model">
+    <div class="model-head">
+      <div>
+        <p class="eyebrow">Version 3</p>
+        <h2>Take a closer look.</h2>
+        <p class="muted">Drag to rotate, scroll or pinch to zoom. This is the actual print file, mounted on a 1 inch tube.</p>
+      </div>
+      <div class="model-controls" role="group" aria-label="Model view options">
+        <button class="chip on" data-toggle="ball" aria-pressed="true">Ball</button>
+        <button class="chip on" data-toggle="tube" aria-pressed="true">Tube</button>
+        <button class="chip" data-toggle="explode" aria-pressed="false">Pull apart</button>
+        <button class="chip" data-toggle="spin" aria-pressed="false">Auto spin</button>
+      </div>
+    </div>
+    <div class="viewer card" id="viewer">
+      <div class="viewer-loading">Loading model…</div>
+    </div>
+    <div class="spec-grid">
+      <div class="card spec"><span class="spec-k">Ball pocket</span><span class="spec-v">74.4 mm</span><span class="spec-n">Fits standard outdoor balls</span></div>
+      <div class="card spec"><span class="spec-k">Fingers</span><span class="spec-v">4 × 2.4 mm</span><span class="spec-n">Snap lip 13 mm above center</span></div>
+      <div class="card spec"><span class="spec-k">Joint</span><span class="spec-v">Dovetail</span><span class="spec-n">Tapered, self-tightening</span></div>
+      <div class="card spec"><span class="spec-k">Clamp</span><span class="spec-v">34 mm tall</span><span class="spec-n">2.9 mm wall, layers run around the ring</span></div>
+    </div>
+  </section>
+
+  <!-- FIT -->
+  <section class="section wrap" id="fit">
+    <div class="fit card">
+      <div class="fit-left">
+        <p class="eyebrow">Fit guide</p>
+        <h2>Which clamp do I need?</h2>
+        <p class="muted">Measure the tube where you want the dock. Calipers work best. No calipers? Wrap a strip of paper around the tube, mark where it overlaps, and measure that length. Pick "around" below and the math is done for you.</p>
+        <form class="fit-form" onsubmit="return false">
+          <div class="seg" role="radiogroup" aria-label="What did you measure">
+            <label><input type="radio" name="mode" value="d" checked><span>Across (diameter)</span></label>
+            <label><input type="radio" name="mode" value="c"><span>Around (paper strip)</span></label>
+          </div>
+          <div class="fit-row">
+            <input id="fit-val" type="number" inputmode="decimal" step="any" min="0" placeholder="e.g. 25.4" aria-label="Measurement">
+            <div class="seg small" role="radiogroup" aria-label="Units">
+              <label><input type="radio" name="unit" value="mm" checked><span>mm</span></label>
+              <label><input type="radio" name="unit" value="in"><span>in</span></label>
+            </div>
+          </div>
+        </form>
+        <p class="fit-result" id="fit-result" aria-live="polite">Enter a measurement to see your size.</p>
+      </div>
+      <ul class="sizes" id="sizes">
+        <li data-mm="22.2"><span class="size-in">7/8 in</span><span class="size-mm">22.2 mm</span></li>
+        <li data-mm="25.4"><span class="size-in">1 in</span><span class="size-mm">25.4 mm</span></li>
+        <li data-mm="28.6"><span class="size-in">1-1/8 in</span><span class="size-mm">28.6 mm</span></li>
+        <li data-mm="31.8"><span class="size-in">1-1/4 in</span><span class="size-mm">31.8 mm</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section wrap" id="story">
+    <p class="eyebrow">The story so far</p>
+    <h2>It started at a ping pong table.</h2>
+    <div class="story">
+      <figure class="card story-img">
+        <img src="assets/img/early-prototypes.webp" alt="Two early PickleDock prototypes printed in white, each holding an orange ball" loading="lazy" width="1200" height="996">
+        <figcaption>Two early printed prototypes</figcaption>
+      </figure>
+      <ol class="timeline">
+        <li>
+          <h3>Ping pong balls kept rolling away</h3>
+          <p>The first version was a small holder glued to a ping pong paddle, built to stop balls from blowing off the table.</p>
+        </li>
+        <li>
+          <h3>From the table to the court</h3>
+          <p>The clamp idea turned out to fit wheelchair rails. After learning about adaptive sports through the Challenged Athletes Foundation, the project shifted to wheelchair pickleball.</p>
+        </li>
+        <li>
+          <h3>First 3D printed docks</h3>
+          <p>A ball cage on a screw-on clamp. It held, but it was hard to put on and take off, and the round cage was tough to print cleanly.</p>
+        </li>
+        <li>
+          <h3>Rebuilt to print without supports</h3>
+          <p>Version 2 sits flat on the printer bed, uses thicker fingers, and swaps the screw for a slide-on dovetail.</p>
+        </li>
+        <li>
+          <h3>Version 3 cleanup</h3>
+          <p>The clamp face now matches the cup's round base exactly, and an unused zip-tie slot is gone.</p>
+        </li>
+        <li class="now">
+          <h3>Testing with athletes</h3>
+          <p>Next up is a hands-on session with about ten wheelchair athletes in San Diego in October 2026.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TESTING -->
+  <section class="section wrap testing">
+    <div class="card test-card">
+      <p class="eyebrow">What we want to learn</p>
+      <h2>Questions for the first test.</h2>
+      <ul class="qs">
+        <li><strong>Does it fit?</strong> Sports wheelchairs use different tube sizes. Do the four clamps cover the chairs people actually play in?</li>
+        <li><strong>Does it hold up?</strong> Will the clamp and cup stay put through hard pushes, quick turns and bumps?</li>
+        <li><strong>Is it easy?</strong> Can players load and grab a ball with one hand, mid-game, without looking?</li>
+      </ul>
+    </div>
+    <div class="card test-card soft">
+      <p class="eyebrow">Known limit</p>
+      <h2>It won't pick balls up off the ground.</h2>
+      <p>PickleDock stores a spare. Players still need a way to collect balls from the court, and that's a problem worth solving next.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section wrap">
+    <p class="eyebrow">Renders</p>
+    <h2>Every angle, every version.</h2>
+    <p class="muted gallery-note">The blue renders show an earlier version. The green views show version 2 on the print bed and going together. Click any image to enlarge it.</p>
+    <div class="gallery">
+      <button class="card g-item" data-full="assets/img/render-main.webp"><img src="assets/img/render-main.webp" alt="Render of PickleDock holding a ball on a tube" loading="lazy"></button>
+      <button class="card g-item" data-full="assets/img/render-side.webp"><img src="assets/img/render-side.webp" alt="Side render of PickleDock" loading="lazy"></button>
+      <button class="card g-item" data-full="assets/img/render-back.webp"><img src="assets/img/render-back.webp" alt="Back render of PickleDock" loading="lazy"></button>
+      <button class="card g-item" data-full="assets/img/render-empty.webp"><img src="assets/img/render-empty.webp" alt="Render of the empty PickleDock cup" loading="lazy"></button>
+      <button class="card g-item wide" data-full="assets/img/v2-views.webp"><img src="assets/img/v2-views.webp" alt="Engineering views of version 2: print plate, cup underside, section, clamp sizes and assembly" loading="lazy"></button>
+    </div>
+  </section>
+
+  <!-- FILES -->
+  <section class="section wrap" id="files">
+    <div class="files card">
+      <div>
+        <p class="eyebrow">Print your own</p>
+        <h2>Get the files.</h2>
+        <p class="muted">One plate with the cup and a 1 inch clamp. Both parts print in the orientation they're saved in.</p>
+        <a class="btn primary" href="downloads/PickleDock_v3_print_plate_1in.stl" download>Download STL (v3, 1 in clamp)</a>
+        <p class="tiny">Files for the 7/8, 1-1/8 and 1-1/4 inch clamps are coming soon.</p>
+      </div>
+      <dl class="settings">
+        <div><dt>Material</dt><dd>PETG (PLA works)</dd></div>
+        <div><dt>Supports</dt><dd>Off</dd></div>
+        <div><dt>Layer height</dt><dd>0.2 mm</dd></div>
+        <div><dt>Walls</dt><dd>4 loops</dd></div>
+        <div><dt>Infill</dt><dd>30% gyroid</dd></div>
+        <div><dt>Brim</dt><dd>Optional</dd></div>
+      </dl>
+      <div class="assembly">
+        <h3>Assembly tips</h3>
+        <ul>
+          <li>Slide the cup on from the wide end of the rail until it wedges.</li>
+          <li>On an upright tube, point the narrow end of the rail down so gravity keeps it tight.</li>
+          <li>Your slicer may flag the slot roof as a "floating cantilever." It's a short bridge and prints fine.</li>
+          <li>Add a drop of glue if you want it permanent.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <img src="assets/img/logo.png" alt="PickleDock" width="140" height="22">
+    <p>A student project from the Innovation class at La Jolla Country Day School, San Diego.</p>
+    <a href="#top" class="muted">Back to top ↑</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" aria-label="Close">×</button>
+  <img alt="">
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="viewer.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
