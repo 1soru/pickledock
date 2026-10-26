@@ -19,15 +19,16 @@ script.js           menu, fit guide, lightbox
 viewer.js           interactive 3D model (three.js, loaded from a CDN)
 assets/img/         photos, renders, logo, favicon
 assets/models/      lightweight STL files used by the 3D viewer
-downloads/          full-resolution print file people can download
+downloads/          v6 print files (cup, four clamps, and a zip of all of them)
 .nojekyll           tells GitHub Pages to serve files as-is
 ```
 
 ## Common edits
 
 - **Text:** everything is in `index.html`. Search for the sentence you want to change.
-- **Add other clamp sizes:** drop the STL files in `downloads/` and add more download buttons in the "Get the files" section.
-- **After the CAF event:** update the last timeline item ("Testing with athletes") and the "Questions for the first test" card with what you learned.
+- **New print files:** put the STLs in `downloads/`, update the links in the "Get the files" section and the `data-file` paths in the fit guide, and rebuild `PickleDock_v6_all_parts.zip`.
+- **Contact email:** search `index.html` for `mailto:` (it appears twice).
+- **New video:** swap the video ID in the YouTube embed (`/embed/VIDEO_ID`).
 - **Colors:** the variables at the top of `style.css`.
 
 The 3D viewer needs to be opened through a web server (GitHub Pages counts). Opening `index.html` straight from your computer may block the model from loading, but everything else will work.

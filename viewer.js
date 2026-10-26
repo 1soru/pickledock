@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { STLLoader } from 'three/addons/loaders/STLLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const BALL_CENTER = new THREE.Vector3(0, -66.46, 0); // model space (z-up), mm
+const BALL_CENTER = new THREE.Vector3(0, -68.6, 0); // model space (z-up), mm
 const BALL_R = 37;
 const TUBE_R = 12.7;
 
@@ -11,9 +11,9 @@ function ballTexture() {
   c.width = 1024; c.height = 512;
   const g = c.getContext('2d');
   const grd = g.createLinearGradient(0, 0, 0, 512);
-  grd.addColorStop(0, '#e3ef4a'); grd.addColorStop(1, '#d2e03a');
+  grd.addColorStop(0, '#f8d520'); grd.addColorStop(1, '#efc914');
   g.fillStyle = grd; g.fillRect(0, 0, 1024, 512);
-  g.fillStyle = '#8f9a1e';
+  g.fillStyle = '#a8901a';
   const rows = [-60, -30, 0, 30, 60];
   rows.forEach((lat, i) => {
     const n = lat === 0 ? 8 : Math.abs(lat) === 30 ? 7 : 5;
@@ -57,7 +57,7 @@ export async function buildViewer(container, opts = {}) {
   const [cupGeo, clampGeo] = await Promise.all([load('assets/models/cup.stl'), load('assets/models/clamp.stl')]);
   [cupGeo, clampGeo].forEach(g => g.computeVertexNormals());
 
-  const cupMat = new THREE.MeshStandardMaterial({ color: 0x2563a8, roughness: 0.55, metalness: 0.0 });
+  const cupMat = new THREE.MeshStandardMaterial({ color: 0x2f74c4, roughness: 0.55, metalness: 0.0 });
   const clampMat = new THREE.MeshStandardMaterial({ color: 0x3a403c, roughness: 0.55 });
   const cup = new THREE.Mesh(cupGeo, cupMat);
   const clamp = new THREE.Mesh(clampGeo, clampMat);
@@ -88,7 +88,7 @@ export async function buildViewer(container, opts = {}) {
   controls.enablePan = false;
   controls.minDistance = 140;
   controls.maxDistance = 600;
-  controls.target.set(0, 0, 32);
+  controls.target.set(0, 0, 34);
   camera.position.set(230, 90, 250);
 
   function resize() {

@@ -44,12 +44,14 @@ function updateFit() {
   if (gap <= TOL) {
     best.classList.add('match');
     out.classList.add('good');
-    out.textContent = `Your tube is about ${dTxt}. Use the ${best.querySelector('.size-in').textContent} clamp.`;
+    const name = best.querySelector('.size-in').textContent;
+    out.innerHTML = `Your tube is about ${dTxt}. Use the ${name} clamp. <a href="${best.dataset.file}" download>Download it</a>`;
   } else if (v < 20 || v > 34) {
     out.textContent = `Your tube is about ${dTxt}, which is outside the current clamp range (22 to 32 mm).`;
   } else {
     best.classList.add('match');
-    out.textContent = `Your tube is about ${dTxt}. That's between sizes. The ${best.querySelector('.size-in').textContent} clamp is closest, so test the fit before you play.`;
+    const name = best.querySelector('.size-in').textContent;
+    out.innerHTML = `Your tube is about ${dTxt}. That's between sizes. The ${name} clamp is closest, so test the fit before you play. <a href="${best.dataset.file}" download>Download it</a>`;
   }
 }
 document.querySelectorAll('.fit-form input').forEach(el => el.addEventListener('input', updateFit));
