@@ -197,6 +197,11 @@ p { margin: 0 0 1em; }
 .tag.pass { background: var(--green); color: var(--green-ink); }
 .tag.next { background: var(--yellow-soft); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--yellow); }
 
+/* session photos */
+.session-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.session-strip .g-item { aspect-ratio: 1; }
+.session-strip .g-item img { inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+
 /* coming */
 .coming { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .coming li { padding: 22px; }
