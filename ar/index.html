@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PickleDock in AR</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Place a giant PickleDock in your room with your phone camera.">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ec; --card: #ffffff; --ink: #1f2a22; --muted: #6b7068; --line: #e8e3d8;
+      --green: #1f5a2e; --green-ink: #ffffff; --yellow: #f2d93a; --radius: 22px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171a16; --card: #20241f; --ink: #ecefe8; --muted: #a3a99f; --line: #2f352d; --green: #f2d93a; --green-ink: #1c1d10; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+      display: flex; flex-direction: column; min-height: 100dvh;
+      padding: max(14px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom));
+      -webkit-text-size-adjust: 100%;
+    }
+    header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; max-width: 720px; width: 100%; margin: 0 auto 10px; }
+    header a.brand { font-weight: 800; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+    header a.home { font-weight: 700; font-size: .95rem; color: var(--muted); text-decoration: none; }
+    main { flex: 1; display: flex; flex-direction: column; gap: 14px; max-width: 720px; width: 100%; margin: 0 auto; }
+    h1 { font-size: 1.55rem; line-height: 1.15; font-weight: 800; margin: 2px 0 0; }
+    p.lead { margin: 0; color: var(--muted); font-size: 1.02rem; font-weight: 600; }
+    .stage { position: relative; flex: 1; min-height: 300px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    model-viewer { position: absolute; inset: 0; width: 100%; height: 100%; background: transparent; --poster-color: transparent; --progress-bar-color: var(--green); }
+    model-viewer.loaded::part(default-progress-bar) { display: none; }
+    .ar-btn {
+      appearance: none; border: 0; cursor: pointer; width: 100%;
+      background: var(--green); color: var(--green-ink);
+      font: 800 1.15rem/1 "Nunito", system-ui, sans-serif;
+      padding: 18px 20px; border-radius: 999px;
+    }
+    .ar-btn:active { transform: scale(.98); }
+    .ar-btn[hidden] { display: none; }
+    .note { margin: 0; padding: 14px 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); font-weight: 700; text-align: center; }
+    .note[hidden] { display: none; }
+    ol.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; counter-reset: s; }
+    ol.steps[hidden] { display: none; }
+    ol.steps li { counter-increment: s; display: flex; gap: 10px; align-items: baseline; color: var(--muted); font-weight: 600; font-size: .98rem; }
+    ol.steps li::before { content: counter(s); flex: none; width: 1.5em; height: 1.5em; border-radius: 50%; background: var(--yellow); color: #1c1d10; font-weight: 800; font-size: .85rem; display: inline-flex; align-items: center; justify-content: center; }
+  </style>
+  <script type="module" src="model-viewer.min.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">PickleDock</a>
+    <a class="home" href="../">Main site</a>
+  </header>
+  <main>
+    <h1>Put a giant PickleDock in the room</h1>
+    <p class="lead">A ball holder that clamps onto a sports wheelchair. Watch the cup slide on and off.</p>
+
+    <div class="stage">
+      <model-viewer id="mv"
+        src="pickledock.glb"
+        ios-src="pickledock.usdz"
+        alt="A PickleDock ball holder clamped to a post, holding a pickleball, slowly spinning"
+        ar ar-modes="scene-viewer webxr quick-look" ar-scale="auto" ar-placement="floor"
+        autoplay camera-controls touch-action="pan-y" interaction-prompt="none"
+        camera-orbit="20deg 78deg auto" shadow-intensity="1" shadow-softness="0.9" exposure="1.05">
+        <button slot="ar-button" id="arSlot" hidden></button>
+      </model-viewer>
+    </div>
+
+    <button class="ar-btn" id="arBtn" type="button" hidden>See it in your room</button>
+    <p class="note" id="noAr" hidden>Open this page on a phone or tablet to see it in your room.</p>
+
+    <ol class="steps" id="steps">
+      <li>Tap the button, then allow the camera.</li>
+      <li>Point at the floor or a table and move your phone slowly.</li>
+      <li>Pinch to make it bigger or smaller. Drag to move it.</li>
+    </ol>
+  </main>
+
+  <script type="module">
+    const mv = document.getElementById('mv');
+    const btn = document.getElementById('arBtn');
+    const note = document.getElementById('noAr');
+    await customElements.whenDefined('model-viewer');
+    const steps = document.getElementById('steps');
+    const ready = () => {
+      mv.classList.add('loaded');
+      const ok = mv.canActivateAR;
+      btn.hidden = !ok; steps.hidden = !ok; note.hidden = ok;
+    };
+    mv.addEventListener('load', ready);
+    if (mv.loaded) ready();
+    btn.addEventListener('click', () => mv.activateAR());
+    mv.addEventListener('ar-status', (e) => {
+      if (e.detail.status === 'failed') { note.textContent = 'AR could not start on this device. You can still spin the model here.'; note.hidden = false; }
+    });
+  </script>
+</body>
+</html>
